@@ -19,3 +19,15 @@ resource "azurerm_resource_group" "rangframor" {
   name     = "pakwetest"
   location = "east us"
 }
+
+resource "azurerm_storage_account" "str23" {
+  name                     = var.namehomk
+  resource_group_name      = azurerm_resource_group.rangframor.name
+  location                 = azurerm_resource_group.rangframor.location
+  account_tier             = "Standard"
+  account_replication_type = "GRS"
+
+  tags = {
+    environment = "staging"
+  }
+}
